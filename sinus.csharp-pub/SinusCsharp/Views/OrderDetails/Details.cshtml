@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SinusCsharp.Models.OrderDetail>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Order Details</h1>
+
+<div>
+    <h4>Order: @ViewBag.OrderId </h4>
+    <hr />
+    <table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                 @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Price)
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductId)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Product.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Price)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrderDetailId">Edit Quantity</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrderDetailId">Delete</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
+</div>
+<div> 
+    <a asp-controller="Orders" asp-action="Index">Back to Orders</a>
+  @*  Add product method could be added*@
+</div>

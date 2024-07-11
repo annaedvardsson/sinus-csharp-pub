@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="logo mx-auto col-10 col-md-8 col-lg-6" style="margin-top: 10rem;">
+    <span class="letter">S</span>
+    <span class="letter">I</span>
+    <span class="letter">N</span>
+    <span class="letter">U</span>
+    <span class="letter">S</span>
+</div>
+
+@section Scripts
+{
+    <script>
+        const logo = document.querySelector('.logo');
+        logo.addEventListener('click', () => {
+            logo.classList.toggle('spin');
+        });
+    </script>
+}
